@@ -80,7 +80,27 @@
     return null;
   }
 
+  function login(event) {
+    if (event) event.preventDefault();
+    var email = document.getElementById("email");
+    var pass = document.getElementById("pass");
+    var error = document.getElementById("login-error");
+    var ok = email && pass && norm(email.value) === "bandi@bandi.cz" && pass.value === "bandi";
+    if (ok) location.href = home;
+    else if (error) error.hidden = false;
+  }
+
+  var loginForm = document.querySelector("form");
+  if (loginForm && document.getElementById("email") && document.getElementById("pass")) {
+    loginForm.addEventListener("submit", login);
+  }
+
   document.querySelectorAll("a, button").forEach(function (el) {
+    if (norm(el.getAttribute("aria-label") || el.textContent) === "přihlásit se") {
+      el.setAttribute("href", "#");
+      el.addEventListener("click", login);
+      return;
+    }
     bind(el, resolve(el.getAttribute("aria-label") || el.textContent));
   });
 
