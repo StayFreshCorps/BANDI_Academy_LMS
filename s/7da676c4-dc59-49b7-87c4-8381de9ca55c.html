@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0094)blob:https://bandi-lms-prototyp-cd-25114d14c4.netlify.app/7da676c4-dc59-49b7-87c4-8381de9ca55c -->
-<html lang="cs"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
+<html lang="cs"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>
     .sc-placeholder{background:color-mix(in srgb,currentColor 8%,transparent);
       border:1px solid color-mix(in srgb,currentColor 50%,transparent);
       border-radius:2px;box-sizing:border-box;overflow:hidden}
@@ -372,35 +372,4 @@ class Component extends DCLogic {
 </script>
 
 
-<script id="petr-rowalign">(function(){function eq(){var cs=[].slice.call(document.querySelectorAll('.course-card'));var ts=cs.map(function(c){return c.querySelector('.course-title')});ts.forEach(function(t){if(t)t.style.minHeight='0'});var rows={};cs.forEach(function(c,i){var k=Math.round(c.getBoundingClientRect().top);(rows[k]=rows[k]||[]).push(ts[i])});Object.keys(rows).forEach(function(k){var r=rows[k].filter(Boolean);var m=Math.max.apply(null,r.map(function(e){return e.offsetHeight}));r.forEach(function(e){e.style.minHeight=m+'px'})})}if(document.readyState!=='loading')eq();else document.addEventListener('DOMContentLoaded',eq);window.addEventListener('load',eq);window.addEventListener('resize',eq);if(document.fonts)document.fonts.ready.then(eq)})();</script><script id="my-courses-slider-js">
-(function () {
-  var track = document.querySelector(".my-courses");
-  var dots = document.querySelector(".my-courses-dots");
-  if (!track || !dots) return;
-  var cards = [].slice.call(track.children).filter(function (el) { return el.classList.contains("course-card"); });
-  var buttons = cards.map(function (card, i) {
-    var button = document.createElement("button");
-    button.type = "button";
-    button.className = "my-courses-dot";
-    button.setAttribute("aria-label", "Kurz " + (i + 1));
-    button.addEventListener("click", function () {
-      var left = card.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
-      track.scrollTo({ left: left, behavior: "smooth" });
-    });
-    dots.appendChild(button);
-    return button;
-  });
-  function paint() {
-    var width = track.clientWidth || 1;
-    var index = Math.max(0, Math.min(cards.length - 1, Math.round(track.scrollLeft / width)));
-    buttons.forEach(function (button, i) {
-      if (i === index) button.setAttribute("aria-current", "true");
-      else button.removeAttribute("aria-current");
-    });
-  }
-  track.addEventListener("scroll", paint, { passive: true });
-  window.addEventListener("resize", paint);
-  paint();
-})();
-</script>
-<script src="nav.js"></script></body></html>
+<script id="petr-rowalign">(function(){function eq(){var cs=[].slice.call(document.querySelectorAll('.course-card'));var ts=cs.map(function(c){return c.querySelector('.course-title')});ts.forEach(function(t){if(t)t.style.minHeight='0'});var rows={};cs.forEach(function(c,i){var k=Math.round(c.getBoundingClientRect().top);(rows[k]=rows[k]||[]).push(ts[i])});Object.keys(rows).forEach(function(k){var r=rows[k].filter(Boolean);var m=Math.max.apply(null,r.map(function(e){return e.offsetHeight}));r.forEach(function(e){e.style.minHeight=m+'px'})})}if(document.readyState!=='loading')eq();else document.addEventListener('DOMContentLoaded',eq);window.addEventListener('load',eq);window.addEventListener('resize',eq);if(document.fonts)document.fonts.ready.then(eq)})();</script><script src="nav.js"></script></body></html>

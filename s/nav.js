@@ -110,6 +110,74 @@
     if (pages[key]) card.setAttribute("href", pages[key]);
   });
 
+  var sliderTracks = [];
+  document.querySelectorAll(".course-card").forEach(function (card) {
+    var parent = card.parentElement;
+    if (!parent || sliderTracks.indexOf(parent) !== -1) return;
+    var count = 0;
+    for (var i = 0; i < parent.children.length; i++) {
+      if (parent.children[i].classList && parent.children[i].classList.contains("course-card")) count++;
+    }
+    if (count > 1) sliderTracks.push(parent);
+  });
+  if (sliderTracks.length) {
+    var sliderCss = document.createElement("style");
+    sliderCss.id = "course-sliders";
+    sliderCss.textContent = [
+      ".course-slider-dots{display:none}",
+      "@media (max-width:760px){",
+      ".course-slider{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;gap:0!important;width:100%;min-width:0;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain}",
+      ".course-slider::-webkit-scrollbar{display:none}",
+      ".course-slider>.course-card{flex:0 0 100%!important;width:100%!important;max-width:100%!important;min-width:100%!important;scroll-snap-align:start;scroll-snap-stop:always;box-sizing:border-box}",
+      ".course-slider-dots{display:flex;justify-content:center;align-items:center;gap:4px;margin-top:12px}",
+      ".course-slider-dot{width:28px;height:28px;padding:0;border:0;background:transparent;cursor:pointer}",
+      ".course-slider-dot::before{content:\"\";display:block;width:8px;height:8px;margin:10px auto;border-radius:50%;background:#c8c6c6}",
+      ".course-slider-dot[aria-current=\"true\"]::before{background:#181210}",
+      "}"
+    ].join("");
+    document.head.appendChild(sliderCss);
+    sliderTracks.forEach(function (track) {
+      track.classList.add("course-slider");
+      var cards = [].filter.call(track.children, function (el) {
+        return el.classList && el.classList.contains("course-card");
+      });
+      var dots = track.nextElementSibling;
+      if (!dots || !dots.classList.contains("course-slider-dots")) {
+        if (dots && dots.classList.contains("my-courses-dots")) dots.classList.add("course-slider-dots");
+        else {
+          dots = document.createElement("div");
+          dots.className = "course-slider-dots";
+          dots.setAttribute("role", "group");
+          dots.setAttribute("aria-label", "Pozice v kurzech");
+          track.parentNode.insertBefore(dots, track.nextSibling);
+        }
+      }
+      var buttons = cards.map(function (card, index) {
+        var button = document.createElement("button");
+        button.type = "button";
+        button.className = "course-slider-dot";
+        button.setAttribute("aria-label", "Kurz " + (index + 1));
+        button.addEventListener("click", function () {
+          var left = card.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
+          track.scrollTo({ left: left, behavior: "smooth" });
+        });
+        dots.appendChild(button);
+        return button;
+      });
+      function paint() {
+        var width = track.clientWidth || 1;
+        var index = Math.max(0, Math.min(cards.length - 1, Math.round(track.scrollLeft / width)));
+        buttons.forEach(function (button, i) {
+          if (i === index) button.setAttribute("aria-current", "true");
+          else button.removeAttribute("aria-current");
+        });
+      }
+      track.addEventListener("scroll", paint, { passive: true });
+      window.addEventListener("resize", paint);
+      paint();
+    });
+  }
+
   var side = document.querySelector("nav.sb");
   if (!side) return;
 
