@@ -268,7 +268,18 @@ a{color:#142f65}a:hover{color:#0d2149}
 .acc-lbl{text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:500;color:var(--ink)}
 .acc-ta{width:100%;box-sizing:border-box;border:0;border-bottom:1px solid var(--grey-line);background:transparent;font:inherit;font-size:16px;line-height:26px;padding:8px 0;resize:vertical;color:var(--ink)}
 .acc-ta:focus{outline:none;border-bottom:2px solid var(--bandi-black)}
-.acc-actions{display:flex;justify-content:flex-end}</style><style id="petr-ask">.ask{margin-top:8px;display:flex;flex-direction:column;align-items:flex-end}.ask[open]{align-items:stretch}.ask summary{list-style:none;display:inline-flex;cursor:pointer}.ask summary::-webkit-details-marker{display:none}.ask[open] summary{display:none}.ask-body{position:relative;display:flex;flex-direction:column;gap:12px;padding:22px 28px;background:#fff;border:1px solid var(--line-subtle);border-radius:4px}.ask-x{position:absolute;top:14px;right:14px;width:32px;height:32px;border:0;background:transparent;cursor:pointer;border-radius:2px}.ask-x::before,.ask-x::after{content:"";position:absolute;left:9px;top:15.25px;width:14px;height:1.5px;background:var(--ink);transform:rotate(45deg)}.ask-x::after{transform:rotate(-45deg)}.ask-x:hover{background:var(--grey-200)}</style><style id="petr-caption">.caption,.eyebrow-cap{text-transform:uppercase!important;letter-spacing:.08em!important;font-size:12px!important;line-height:18px!important;font-weight:500!important;color:var(--ink-muted)!important}</style></head>
+.acc-actions{display:flex;justify-content:flex-end}</style><style id="petr-ask">.ask{margin-top:8px;display:flex;flex-direction:column;align-items:flex-end}.ask[open]{align-items:stretch}.ask summary{list-style:none;display:inline-flex;cursor:pointer}.ask summary::-webkit-details-marker{display:none}.ask[open] summary{display:none}.ask-body{position:relative;display:flex;flex-direction:column;gap:12px;padding:22px 28px;background:#fff;border:1px solid var(--line-subtle);border-radius:4px}.ask-x{position:absolute;top:14px;right:14px;width:32px;height:32px;border:0;background:transparent;cursor:pointer;border-radius:2px}.ask-x::before,.ask-x::after{content:"";position:absolute;left:9px;top:15.25px;width:14px;height:1.5px;background:var(--ink);transform:rotate(45deg)}.ask-x::after{transform:rotate(-45deg)}.ask-x:hover{background:var(--grey-200)}</style><style id="petr-caption">.caption,.eyebrow-cap{text-transform:uppercase!important;letter-spacing:.08em!important;font-size:12px!important;line-height:18px!important;font-weight:500!important;color:var(--ink-muted)!important}</style>
+<style id="outline-acc">
+.outline{display:flex;flex-direction:column;gap:10px}
+.outline details{background:#e5e4e4;border-radius:8px;overflow:hidden}
+.outline summary{list-style:none;cursor:pointer;padding:14px 16px;font-size:14px;line-height:20px;font-weight:500;color:var(--ink)}
+.outline summary::-webkit-details-marker{display:none}
+.outline summary:hover{background:#d8d6d6}
+.outline ul{list-style:none;margin:0;padding:0}
+.outline a{display:block;padding:12px 16px;border-top:1px solid rgba(24,18,16,.12);color:var(--ink);text-decoration:none;font-size:14px;line-height:20px}
+.outline a:hover{background:#d2d0d0;color:var(--ink)}
+.outline .ol-note{display:block;margin-top:2px;font-size:12px;line-height:16px;letter-spacing:.04em;color:var(--ink-muted)}
+</style></head>
 <body>
 <div id="dc-root"><div class="sc-host" data-sc-name="8f29a901-563a-4b6f-b5ed-c612aca12294"><div data-dc-tpl="4" class="app" style="background: rgb(255, 255, 255);">
   <nav data-dc-tpl="5" class="rail" aria-label="Hlavní navigace">
@@ -349,19 +360,46 @@ a{color:#142f65}a:hover{color:#0d2149}
             <div data-dc-tpl="117" class="progress-head"><span data-dc-tpl="118" class="progress-label">Splněno</span><span data-dc-tpl="119" class="progress-value">64 %</span></div>
           </div>
         </div>
-        <div data-dc-tpl="122" style="display: flex; flex-direction: column; gap: 16px;">
-          <div data-dc-tpl="123">
-            <div data-dc-tpl="124" style="display: flex; justify-content: space-between; padding: 8px 0px; font-size: 14px; font-weight: 500;"><span data-dc-tpl="125">01 Základ profesionálního servisu</span><span data-dc-tpl="126" class="meta">3</span></div>
-            <ul data-dc-tpl="127" class="lessons" style="background: rgb(255, 255, 255); border: 1px solid rgb(220, 219, 219); border-radius: 4px; overflow: hidden;">
-              <li data-dc-tpl="128"><a data-dc-tpl="129" class="lesson lesson-current" href="" style="font-size: 14px;"><span data-dc-tpl="130" class="lesson-state"><svg data-dc-tpl="131" class="bd-icon" viewBox="0 0 24 24" aria-hidden="true"><path data-dc-tpl="132" d="M6 4l14 8-14 8z"></path></svg></span><span data-dc-tpl="133" class="lesson-title">1. Standard profesionální obsluhy</span></a></li>
-              <li data-dc-tpl="134"><a data-dc-tpl="135" class="lesson" href="" style="font-size: 14px;"><span data-dc-tpl="136" class="lesson-state"></span><span data-dc-tpl="137" class="lesson-title">2. První kontakt a vytvoření důvěry</span></a></li>
-              <li data-dc-tpl="138"><a data-dc-tpl="139" class="lesson" href="" style="font-size: 14px; border-bottom: 0px;"><span data-dc-tpl="140" class="lesson-state"></span><span data-dc-tpl="141" class="lesson-title">3. Zjištění potřeb pomocí správných otázek</span></a></li>
+        <div class="outline">
+          <details open>
+            <summary>01 Základ profesionálního servisu</summary>
+            <ul>
+              <li><a href="">1. Standard profesionální obsluhy</a></li>
+              <li><a href="">2. První kontakt a vytvoření důvěry</a></li>
+              <li><a href="">3. Zjištění potřeb pomocí správných otázek</a></li>
             </ul>
-          </div>
-          <div data-dc-tpl="142" style="display: flex; justify-content: space-between; padding: 8px 0px; font-size: 14px; font-weight: 500; color: rgb(79, 76, 77);"><span data-dc-tpl="143">02 Doporučení podle příležitosti</span><span data-dc-tpl="144" class="meta">3</span></div>
-          <div data-dc-tpl="145" style="display: flex; justify-content: space-between; padding: 8px 0px; font-size: 14px; font-weight: 500; color: rgb(79, 76, 77);"><span data-dc-tpl="146">03 Zkouška, doplňky a dokončení nákupu</span><span data-dc-tpl="147" class="meta">3</span></div>
-          <div data-dc-tpl="148" style="display: flex; justify-content: space-between; padding: 8px 0px; font-size: 14px; font-weight: 500; color: rgb(79, 76, 77);"><span data-dc-tpl="149">04 Náročné situace a ověření znalostí</span><span data-dc-tpl="150" class="meta">4</span></div>
-          <div data-dc-tpl="151" style="display: flex; justify-content: space-between; padding: 8px 0px; font-size: 14px; font-weight: 500; color: rgb(79, 76, 77);"><span data-dc-tpl="152">05 Interaktivní trénink (SCORM)</span><span data-dc-tpl="153" class="meta">1</span></div>
+          </details>
+          <details open>
+            <summary>02 Doporučení podle příležitosti</summary>
+            <ul>
+              <li><a href="">4. Svatba: ženich, svědek, host</a></li>
+              <li><a href="">5. Práce a business casual</a></li>
+              <li><a href="">6. Společenské události a dress code</a></li>
+            </ul>
+          </details>
+          <details open>
+            <summary>03 Zkouška, doplňky a dokončení nákupu</summary>
+            <ul>
+              <li><a href="">7. Vedení zkoušky v kabince</a></li>
+              <li><a href="">8. Košile, kravata, boty: doplňkový prodej</a></li>
+              <li><a href="">9. Krejčovské úpravy a termín převzetí</a></li>
+            </ul>
+          </details>
+          <details open>
+            <summary>04 Náročné situace a ověření znalostí</summary>
+            <ul>
+              <li><a href="">10. Stížnost a reklamace</a></li>
+              <li><a href="">11. Zákazník bez rozhodnutí</a></li>
+              <li><a href="">12. Rozloučení a následná péče</a></li>
+              <li><a href="">13. Závěrečný test</a></li>
+            </ul>
+          </details>
+          <details open>
+            <summary>05 Interaktivní trénink (SCORM)</summary>
+            <ul>
+              <li><a href="">14. Simulace rozhovoru se zákazníkem<span class="ol-note">SCORM</span></a></li>
+            </ul>
+          </details>
         </div>
       </aside>
     </div>
