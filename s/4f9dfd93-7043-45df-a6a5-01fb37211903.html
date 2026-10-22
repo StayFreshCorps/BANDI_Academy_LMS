@@ -190,6 +190,10 @@ a.lesson:hover { background:var(--surface-subtle); color:var(--ink); }
 .table th { text-align:left; font-size:12px; line-height:18px; font-weight:500; color:var(--ink-muted); padding:12px 16px; border-bottom:1px solid var(--line-subtle); background:var(--surface-subtle); }
 .table td { padding:14px 16px; border-bottom:1px solid var(--line-subtle); vertical-align:middle; }
 .table tr:hover td { background:var(--surface-subtle); }
+.table.results th,.table.results td{position:relative;border-bottom-color:transparent}
+.table.results th::after,.table.results td::after{content:"";position:absolute;left:0;right:0;bottom:0;border-bottom:1px solid var(--line-subtle)}
+.table.results th:first-child::after,.table.results td:first-child::after{left:16px}
+.table.results th:last-child::after,.table.results td:last-child::after{right:16px}
 
 /* Alert */
 .alert { display:flex; gap:12px; padding:16px 24px; border-radius:var(--radius-md); background:var(--info-soft); color:var(--info); }
@@ -328,7 +332,7 @@ a{color:#142f65}a:hover{color:#0d2149}
           <div data-dc-tpl="169" class="search" style="width: 260px;"><svg data-dc-tpl="170" class="bd-icon" viewBox="0 0 24 24" aria-hidden="true"><circle data-dc-tpl="171" cx="11" cy="11" r="7"></circle><path data-dc-tpl="172" d="M20 20l-4-4"></path></svg><input data-dc-tpl="173" class="input" type="search" placeholder="Hledat studenta" aria-label="Hledat studenta" style="height: 36px;"></div>
         </div>
         <div data-dc-tpl="174" style="overflow-x: auto;">
-          <table data-dc-tpl="175" class="table">
+          <table data-dc-tpl="175" class="table results">
             <thead data-dc-tpl="176"><tr data-dc-tpl="177"><th data-dc-tpl="178">Student</th><th data-dc-tpl="179">Kurz</th><th data-dc-tpl="180">Datum</th><th data-dc-tpl="181">Výsledek</th><th data-dc-tpl="182">Stav</th><th data-dc-tpl="183"></th></tr></thead>
             <tbody data-dc-tpl="184">
               <tr data-dc-tpl="185"><td data-dc-tpl="186" style="font-weight: 500;">Marek Novák</td><td data-dc-tpl="187">Profesionální obsluha při výběru pánského obleku</td><td data-dc-tpl="188">14. 10. 2026</td><td data-dc-tpl="189">90 %</td><td data-dc-tpl="190"><span data-dc-tpl="191" class="badge badge-success"><svg data-dc-tpl="192" class="bd-icon" viewBox="0 0 24 24" aria-hidden="true"><path data-dc-tpl="193" d="M5 12l5 5L19 7"></path></svg>Prošel</span></td><td data-dc-tpl="194"><a data-dc-tpl="195" href="#" style="font-size: 14px;">Detail</a></td></tr>
