@@ -398,4 +398,20 @@ class Component extends DCLogic {
 </script>
 
 
-<script src="nav.js"></script></body></html>
+<script src="nav.js"></script>
+<script id="orphans">
+(function () {
+  var re = /(^|[^\p{L}\p{N}])(bez|dle|kol|nad|pod|pro|při)[ \t]+/giu;
+  var root = document.querySelector(".hero-copy");
+  if (!root) return;
+  var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  var node, nodes = [];
+  while ((node = walker.nextNode())) nodes.push(node);
+  nodes.forEach(function (n) {
+    n.nodeValue = n.nodeValue.replace(re, function (_, lead, word) {
+      return lead + word + "\u00A0";
+    });
+  });
+})();
+</script>
+</body></html>
